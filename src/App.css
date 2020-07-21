@@ -55,6 +55,7 @@ img {
 	float: right;
 	height: 100%;
 	align-items: center;
+	justify-content: space-evenly;
 }
 
 .navbar li {
@@ -200,5 +201,12 @@ img {
 @media (max-width: 480px) {
 	html {
 		font-size: 8px;
+	}
+	.pokemon-details-page{
+		width: 100%;
+	}
+	.navbar ul {
+		height: 100%;
+		width: 100%;
 	}
 }
