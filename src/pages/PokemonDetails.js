@@ -10,12 +10,15 @@ const PokemonDetails = ({ history }) => {
 	const regex = /\/pokemon\/(\w*)/gim;
 	const url_name = regex.exec(path)[1];
 
+
+
 	let [currentPokemon, setCurrentPokemon] = useState({});
 	let [moves, setMoves] = useState([]);
 	let [stats, setStats] = useState({});
 	let [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+
 		getPokemonByName(url_name)
 			.then((result) => {
 				setCurrentPokemon(result);
@@ -25,7 +28,6 @@ const PokemonDetails = ({ history }) => {
 			});
 		getPokemonsStats(url_name).then((val) => setStats(val));
 		getPokemonsMoves(url_name).then((val) => {
-			console.log(`Moves:\n ${val}`);
 			setMoves(val);
 			setLoading(false);
 		});
