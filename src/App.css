@@ -141,6 +141,7 @@ img {
 	min-width: 300px;
 	margin: 0 auto;
 	margin-top: 0.3rem;
+	min-height: 150vh;
 }
 
 .pokemon-details-page img {
@@ -188,6 +189,14 @@ img {
 	border-radius: 1rem;
 }
 
+.abilities-section h2 {
+	color: #FFF;
+	background-color: var(--dark-color);
+	padding: 0.4rem;
+	border-radius: 0.3rem;
+	margin-bottom: 0.5rem;
+}
+
 .abilities-section li {
 	background-color: var(--light-color);
 	color: #000;
@@ -196,6 +205,51 @@ img {
 	margin-bottom: 0.3rem;
 	font-size: 1rem;
 	font-weight: 500;
+}
+
+/* MOVES SECTION */
+
+.moves-section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	overflow: scroll;
+	height: 240px;
+}
+
+.moves-section-box h2 {
+	margin: 0 auto;
+	display: inline-block;
+	color: #FFF;
+	background-color: var(--dark-color);
+	padding: 0.4rem;
+	border-radius: 0.3rem;
+	margin-bottom: 0.5rem;
+}
+
+.moves-section-box  {
+	margin: 0 auto;
+	padding: 0.5rem;
+	border-radius: 0.6rem;
+	width: 80%;
+	height: 300px;
+	background-color: var(--light-color);
+	display: flex;
+	flex-direction: column;
+
+}
+
+.move {
+	margin: 0.3rem;
+	background-color: var(--dark-color);
+	padding: 0.3rem;
+	color: #fff;
+	border-radius: 0.3rem;
+	border: 1px solid black;
+}
+.move:hover{
+	cursor: pointer;
+
 }
 
 @media (max-width: 480px) {

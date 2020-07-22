@@ -5,17 +5,17 @@ function Navbar() {
 		<nav className='navbar'>
 			<ul className='navlinks'>
 				<li className='navlink'>
-					<a href='/' ontouchend='this.onclick=fix'>
+					<a href='/' onTouchEnd={fix}>
 						All Pokemons
 					</a>
 				</li>
 				<li className='navlink'>
-					<a href='/myPokemons' ontouchend='this.onclick=fix'>
+					<a href='/myPokemons' onTouchEnd={fix}>
 						My Pokemons
 					</a>
 				</li>
 				<li className='navlink'>
-					<a href='/settings' ontouchend='this.onclick=fix'>
+					<a href='/settings' onTouchEnd={fix}>
 						Settings
 					</a>
 				</li>

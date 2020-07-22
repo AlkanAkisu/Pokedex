@@ -5,11 +5,13 @@ import { getAllPokemons } from '../api/api';
 
 const PokemonList = ({ history }) => {
 	const [pokemons, setPokemons] = useState([]);
+	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const limit = 100;
+		const limit = 200;
+		setLoading(true);
 		getAllPokemons(limit).then((rv) => {
-			console.log('got all pokemons');
+			setLoading(false);
 			setPokemons(rv);
 		});
 	}, []);
@@ -17,7 +19,6 @@ const PokemonList = ({ history }) => {
 	let pokemon_list_items = [];
 
 	let callback = (name) => {
-		console.log('redirect: ' + name);
 		const site = '/pokemon/' + name;
 		history.push(site);
 	};
@@ -30,7 +31,16 @@ const PokemonList = ({ history }) => {
 				callback={callback}></PokemonListItem>
 		);
 	}
-	return <div className='pokemonGrid'>{pokemon_list_items}</div>;
+	if (!isLoading) {
+		return <div className='pokemonGrid'>{pokemon_list_items}</div>;
+	}else{
+		return <div style={style()} >Loading</div>;
+	}
+
 };
+
+const style = () => {
+	return {margin:'4rem'};
+}
 
 export default PokemonList;
