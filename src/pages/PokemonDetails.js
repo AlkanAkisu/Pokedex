@@ -3,7 +3,7 @@ import {
 	getPokemonByName,
 	getPokemonsStats,
 	getPokemonsMoves,
-} from '../api/api';
+} from '../api/api.js';
 
 const PokemonDetails = ({ history }) => {
 	const path = window.location.pathname;

@@ -3,7 +3,6 @@ import React from 'react';
 export const PokemonListItem = ({ pokemon, callback }) => {
 	const { name, sprites, types } = pokemon;
 	let type_str = '';
-	let redirect = false;
 
 	types.forEach(({ type }, i) => {
 		type_str += type.name.toUpperCase() + ' ';
