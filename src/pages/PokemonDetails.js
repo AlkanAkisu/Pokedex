@@ -10,15 +10,12 @@ const PokemonDetails = ({ history }) => {
 	const regex = /\/pokemon\/(\w*)/gim;
 	const url_name = regex.exec(path)[1];
 
-
-
 	let [currentPokemon, setCurrentPokemon] = useState({});
 	let [moves, setMoves] = useState([]);
 	let [stats, setStats] = useState({});
 	let [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-
 		getPokemonByName(url_name)
 			.then((result) => {
 				setCurrentPokemon(result);
@@ -47,7 +44,7 @@ const PokemonDetails = ({ history }) => {
 	let AbilitiesSection = ({ ability: { name } }) => {
 		return <li className='ability'>{name.toUpperCase()}</li>;
 	};
-
+	//TODO add moves section
 	let MovesSection = ({ move: { name, url } }) => {
 		return (
 			<p className='move' onClick={() => move_clicked(url)}>
@@ -67,26 +64,59 @@ const PokemonDetails = ({ history }) => {
 		const type_text = types_to_string(types);
 		return (
 			<div className='pokemon-details-page'>
-				<div className='img-box'>
+				<div className='detail-card img-box'>
 					<img src={sprites.front_default} alt={alt} />
 				</div>
-				<div className='name-type-section'>
+				<div className='detail-card name-type-section'>
 					<h1>{name.toUpperCase()}</h1>
 					<h2>{type_text.toUpperCase()}</h2>
 				</div>
-				<ul className='abilities-section'>
+				<ul className=' detail-card abilities-section'>
 					<h2>ABILTIES</h2>
 					{abilities.map((val, i) => (
 						<AbilitiesSection key={i} ability={val.ability}></AbilitiesSection>
 					))}
 				</ul>
-				<div className='moves-section-box'>
+				<div className='detail-card moves-section-box'>
 					<h2>MOVES</h2>
 					<div className='moves-section'>
 						{moves.map((move, i) => (
 							<MovesSection key={i} move={move}></MovesSection>
 						))}
 					</div>
+				</div>
+				<div className='detail-card stats-section'>
+					<div className='hp stat-box'>
+						{/* add logo */}
+						<h3>HP</h3>
+						<p>{stats.hp.base_stat}</p>
+					</div>
+					<div className='attack stat-box'>
+						{/* add logo */}
+						<h3>ATTACK</h3>
+						<p>{stats.attack.base_stat}</p>
+					</div>
+					<div className='defense stat-box'>
+						{/* add logo */}
+						<h3>DEFENSE</h3>
+						<p>{stats.defense.base_stat}</p>
+					</div>
+					<div className='special-attack stat-box'>
+						{/* add logo */}
+						<h3>SPECIAL ATTACK</h3>
+						<p>{stats.special_attack.base_stat}</p>
+					</div>
+					<div className='special-defense stat-box'>
+						{/* add logo */}
+						<h3>SPECIAL DEFENSE</h3>
+						<p>{stats.special_defense.base_stat}</p>
+					</div>
+					<div className='speed stat-box'>
+						{/* add logo */}
+						<h3>SPEED</h3>
+						<p>{stats.speed.base_stat}</p>
+					</div>
+
 				</div>
 			</div>
 		);

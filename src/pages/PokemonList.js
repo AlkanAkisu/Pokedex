@@ -38,7 +38,7 @@ const PokemonList = ({ history }) => {
 	if (!isLoading) {
 		return <div className='pokemonGrid'>{pokemonListItems}</div>;
 	} else {
-		return <div style={style()}>Loading</div>;
+		return <div class='loader'>Loading...</div>;
 	}
 };
 

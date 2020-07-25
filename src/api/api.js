@@ -70,6 +70,7 @@ export const getPokemonsStats = async (name) => {
 			base_stat,
 			stat: { name, url },
 		} = curr;
+		name = name.replace('-','_');
 		return {
 			...prev,
 			[name]: {
